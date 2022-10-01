@@ -1,0 +1,9 @@
+--- # multiple users
+- hosts: all
+  become: true
+
+  tasks:
+    - name: creating multiple users
+      user:
+        name: '['hel','good','bad']'
+        

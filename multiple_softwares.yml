@@ -1,0 +1,11 @@
+--- # multiple s/w
+- hosts: all
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: install packages
+      yum:
+        name: ['git', 'mysql', 'tree', 'wget', 'java']
+        state: installed

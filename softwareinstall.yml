@@ -1,0 +1,9 @@
+--- # installing a software
+- hosts: webservers
+  become: yes
+
+  tasks:
+    - name: install docker software
+      yum:
+        name: docker
+        state: installed

@@ -1,0 +1,12 @@
+--- # create directory
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: creating a directory
+      file:
+        path: /home/ansible/nirudir
+        state: directory
+    

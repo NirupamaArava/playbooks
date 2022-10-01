@@ -1,0 +1,15 @@
+--- # sample playbook
+- hosts: webservers
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: creating a file
+      file: path=/tmp/hello3.txt state=touch
+
+    - name: creating folder
+      file: path=/tmp/hellodir state=directory
+
+    - name: copying file
+      copy: src=./testing dest=/home/ansible

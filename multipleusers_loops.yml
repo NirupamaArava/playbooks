@@ -1,0 +1,13 @@
+--- # multiple users using loops
+- hosts: webservers
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: creating multiple users
+      user: name='{{item}}' state=present
+      with_items:
+        - prakash
+        - arava
+        - reddy

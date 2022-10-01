@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+
+  vars:
+    user: nirup
+
+  tasks:
+    - name: creating user {{user}}
+      user:
+        name: '{{user}}'

@@ -1,0 +1,14 @@
+--- # loops
+- hosts: webservers
+  user: ansible
+  become: true
+
+  tasks:
+    - name: installing packages using loops
+      yum: name='{{item}}' state=installed
+      with_items:
+        - httpd
+        - wget
+        - git
+
+

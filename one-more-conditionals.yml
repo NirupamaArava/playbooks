@@ -1,0 +1,25 @@
+--- # my conditionals
+- hosts: webservers
+  become: true
+  connection: ssh
+  user: ansible
+
+  tasks:
+    - name: install httpd 
+      yum:
+        name: httpd
+        state: installed
+      when: ansible_os_family == 'RedHat'
+
+    - name: start httpd service
+      service:
+        name: httpd
+        state: started
+      when: ansible_os_family == 'RedHat'
+
+    - name: copy index.html
+      copy:
+        src: /home/ansible/sainiru.html
+        dest: /var/www/html
+      
+

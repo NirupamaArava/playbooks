@@ -1,0 +1,9 @@
+--- # copying a file
+- hosts: webservers
+  become: yes
+
+  tasks: 
+    - name: copying file
+      copy:
+        src: /home/ansible/index.html
+        dest: /home/ansible
